@@ -1,0 +1,23 @@
+[build]
+  functions = "netlify/functions"
+  publish   = "."
+
+[functions]
+  node_bundler = "esbuild"
+
+# the ready screen: https://<site>/b/<screen id> serves the app, which reads the id from the path
+[[redirects]]
+  from   = "/b/*"
+  to     = "/index.html"
+  status = 200
+
+# the app must always be the latest build
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "max-age=0, must-revalidate"
