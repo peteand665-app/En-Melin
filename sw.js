@@ -3,7 +3,7 @@
    venue with no signal. The app page is fetched network-first, so a new build
    is still picked up the moment the device is online; the cached copy is only
    used when the network fails. Bump CACHE with every release (release.sh does). */
-const CACHE = 'enmelin-v1.3.0';
+const CACHE = 'enmelin-v1.5.0';
 const SHELL = ['/', '/manifest.json', '/icon-192.png', '/icon-512.png', '/badge-96.png'];
 
 self.addEventListener('install', e => {
